@@ -33,7 +33,7 @@
                     ['label' => 'MENU', 'options' => ['class' => 'header']],
                     ['label' => 'Xodimlar', 'icon' => 'users', 'url' => ['#']],
                     ['label' => 'Xabarlar', 'icon' => 'envelope', 'url' => ['#']],
-                    ['label' => 'Portfolio', 'icon' => 'fa-tags', 'url' => ['#']],
+                    ['label' => 'Portfolio', 'icon' => 'tags', 'url' => ['#']],
                     ['label' => 'Konfiguratsiyalar', 'icon' => 'share-alt', 'url' => ['#']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     // [
