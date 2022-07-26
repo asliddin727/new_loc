@@ -31,10 +31,10 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'MENU', 'options' => ['class' => 'header']],
-                    ['label' => 'Xodimlar', 'icon' => 'users', 'url' => ['#']],
-                    ['label' => 'Xabarlar', 'icon' => 'envelope', 'url' => ['#']],
-                    ['label' => 'Portfolio', 'icon' => 'tags', 'url' => ['#']],
-                    ['label' => 'Konfiguratsiyalar', 'icon' => 'share-alt', 'url' => ['#']],
+                    ['label' => 'Xodimlar', 'icon' => 'users', 'url' => ['team/index']],
+                    ['label' => 'Xabarlar', 'icon' => 'envelope', 'url' => ['message/index']],
+                    ['label' => 'Portfolio', 'icon' => 'tags', 'url' => ['portfolio/index']],
+                    ['label' => 'Konfiguratsiyalar', 'icon' => 'share-alt', 'url' => ['config/update']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     // [
                     //     'label' => 'Some tools',

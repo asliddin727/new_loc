@@ -12,6 +12,7 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
+    "timezone"=>'Asia/Tashkent',
     'components' => [
         'request' => [
             'baseUrl'=>'/admin',

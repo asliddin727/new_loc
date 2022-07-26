@@ -2,6 +2,8 @@
 
 namespace frontend\controllers;
 
+use backend\models\Messages;
+use common\models\Config;
 use frontend\models\Portfolio;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
@@ -23,9 +25,27 @@ use frontend\models\ContactForm;
 class SiteController extends AppController
 {
 
+
+    
+
     public function actionIndex()
     {
-       return $this->render('index');
+
+       $message = new Messages(); 
+       if($this->request->isPost){
+
+       
+            if($message->load(Yii::$app->request->post()) && $message->validate()){
+                $message->created_at = date('Y-m-d H:i:s');
+                $message->save();
+                Yii::$app->session->setFlash('success', 'Xabaringiz yuborildi! Tez orada xodimlarimiz siz bilan bog`lanishadi!!!');
+                // return $this->redirect(['site/index#contact']);
+            } else {
+                Yii::$app->session->setFlash('error', 'Xabaringiz yuborilmadi! Iltimos qayta urinib ko`ring!!!');
+                return $this->redirect(['site/index#contact']);
+            }
+        }
+       return $this->render('index', compact('message'));
     }
 
 

@@ -1,8 +1,13 @@
 <?php
+
+use backend\models\Messages;
 use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
+
+
+$message = Messages::find()->where(['status'=>0])->count('id');
 ?>
 
 <header class="main-header">
@@ -23,7 +28,9 @@ use yii\helpers\Html;
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-envelope-o"></i>
-                        <span class="label label-success">4</span>
+                        <?php if($message != 0):?>
+                        <span class="label label-success"><?=$message?></span>
+                        <?php endif; ?>
                     </a>
                 </li>
 

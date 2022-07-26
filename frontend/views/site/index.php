@@ -1,12 +1,19 @@
 <?php
 
+use yii\widgets\ActiveForm;
+
 $this->title = 'Agency - Start Bootstrap Theme';
 
 ?>       
        
        
+<style>
+    .help-block{
+        color: red;
+    }
+</style>
        
-       
+   
        <!-- Services-->
         <section class="page-section" id="services">
             <div class="container">
@@ -220,7 +227,7 @@ $this->title = 'Agency - Start Bootstrap Theme';
                             <p class="text-muted">Lead Designer</p>
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-telegram"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -230,7 +237,7 @@ $this->title = 'Agency - Start Bootstrap Theme';
                             <p class="text-muted">Lead Marketer</p>
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-telegram"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -240,7 +247,7 @@ $this->title = 'Agency - Start Bootstrap Theme';
                             <p class="text-muted">Lead Developer</p>
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-telegram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -275,6 +282,26 @@ $this->title = 'Agency - Start Bootstrap Theme';
                     <h2 class="section-heading text-uppercase">Contact Us</h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
+                <!-- * * * * * * *  * -->
+                <!-- message xabari chiqishi uchun -->
+                <div>
+                    <?php if(Yii::$app->session->hasFlash('success')): ?>
+                        <div class="container">
+                        <div class="alert alert-success alert-dismissible mt-3">
+                            <strong><?=Yii::$app->session->getFlash('success')?></strong> 
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if(Yii::$app->session->hasFlash('error')): ?>
+                        <div class="container">
+                        <div class="alert alert-success alert-dismissible mt-3">
+                            <strong><?=Yii::$app->session->getFlash('error')?></strong> 
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        </div>
+                        </div>
+                    <?php endif; ?>
+                </div>
                 <!-- * * * * * * * * * * * * * * *-->
                 <!-- * * SB Forms Contact Form * *-->
                 <!-- * * * * * * * * * * * * * * *-->
@@ -282,56 +309,66 @@ $this->title = 'Agency - Start Bootstrap Theme';
                 <!-- To make this form functional, sign up at-->
                 <!-- https://startbootstrap.com/solution/contact-forms-->
                 <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                    <div class="row align-items-stretch mb-5">
+                <?php $form = ActiveForm::begin([
+                    'id'=>'contactForm'
+                ]);?>
+                <!-- <form id="contactForm" data-sb-form-api-token="API_TOKEN"> -->
+                    <div class="row align-items-stretch mb-5" style="display: flex; align-items: center; justify-content: center;">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <!-- Name input-->
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                            </div>
+                                <?=$form->field($message, 'fullName')->textInput(['placeholder'=>'Your Name *', 'id'=>'name'])->label(false)?>                            </div>
                             <div class="form-group">
                                 <!-- Email address input-->
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                <?=$form->field($message, 'email')->textInput(['placeholder'=>'Your Email *', 'id'=>'email'])->label(false)?>
                             </div>
-                            <div class="form-group mb-md-0">
+                            <div class="form-group">
                                 <!-- Phone number input-->
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                <?=$form->field($message, 'phone')->textInput(['placeholder'=>'Your Phone *', 'id'=>'phone'])->label(false)?>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group form-group-textarea mb-md-0">
+                            <div class="form-group form-group-textarea">
                                 <!-- Message input-->
-                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                <?=$form->field($message, 'description')->textarea(['placeholder'=>'Your Message *', 'rows'=>8])->label(false)?>
                             </div>
                         </div>
                     </div>
-                    <!-- Submit success message-->
-                    <!---->
-                    <!-- This is what your users will see when the form-->
-                    <!-- has successfully submitted-->
-                    <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center text-white mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
-                            <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                        </div>
-                    </div>
-                    <!-- Submit error message-->
-                    <!---->
-                    <!-- This is what your users will see when there is-->
-                    <!-- an error submitting the form-->
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                    <!-- Submit Button-->
+                    
                     <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Send Message</button></div>
-                </form>
+                    <?php ActiveForm::end();?>
             </div>
         </section>
+
+
+
+
+
+
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         <!-- Portfolio Modals-->
