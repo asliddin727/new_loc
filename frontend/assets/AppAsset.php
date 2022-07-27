@@ -12,8 +12,8 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        // "https://fonts.googleapis.com/css?family=Montserrat:400,700",
-        // "https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700",
+        "https://fonts.googleapis.com/css?family=Montserrat:400,700",
+        "https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700",
         "/vendors/bootstrap/bootstrap.min.css",
         "/vendors/fontawesome/css/all.min.css",
         "/vendors/themify-icons/themify-icons.css",
@@ -28,8 +28,8 @@ class AppAsset extends AssetBundle
 
 
     public $js = [
-        // "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js",
-        // "https://cdn.startbootstrap.com/sb-forms-latest.js",
+        "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js",
+        "https://cdn.startbootstrap.com/sb-forms-latest.js",
         // "https://use.fontawesome.com/releases/v6.1.0/js/all.js",
 
         "/vendors/jquery/jquery-3.2.1.min.js",

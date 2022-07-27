@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use backend\models\Messages;
+use backend\models\Team;
 use common\models\Config;
 use frontend\models\Portfolio;
 use frontend\models\ResendVerificationEmailForm;
@@ -30,6 +31,7 @@ class SiteController extends AppController
 
     public function actionIndex()
     {
+        $team = new Team();
 
        $message = new Messages(); 
        if($this->request->isPost){
@@ -45,7 +47,7 @@ class SiteController extends AppController
                 return $this->redirect(['site/index#contact']);
             }
         }
-       return $this->render('index', compact('message'));
+       return $this->render('index', compact('message', 'team'));
     }
 
 
