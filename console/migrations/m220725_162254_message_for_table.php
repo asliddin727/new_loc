@@ -18,6 +18,7 @@ class m220725_162254_message_for_table extends Migration
             'email'=>$this->string()->null(),
             'phone'=>$this->string()->null(),
             'description'=>$this->text()->null(),
+            'status'=>$this->integer()->defaultValue(0),
             'created_at'=>$this->timestamp()->null()
         ]);
 
