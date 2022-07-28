@@ -2,6 +2,7 @@
 
 use backend\models\Messages;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -26,7 +27,7 @@ $message = Messages::find()->where(['status'=>0])->count('id');
 
                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="<?=Url::to(['message/index'])?>">
                         <i class="fa fa-envelope-o"></i>
                         <?php if($message != 0):?>
                         <span class="label label-success"><?=$message?></span>
