@@ -16,10 +16,12 @@ class PortfolioController extends AuthController
   
     public function actionIndex()
     {
+        $model = new Portfolio();
         $searchModel = new PortfolioSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
+            'model'=>$model,
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -76,7 +78,7 @@ class PortfolioController extends AuthController
 
         if ($this->request->isPost && $model->load($this->request->post())) {
             $model->updated_at = strtotime(date('Y-m-d H:i:s'));
-            $model->save();
+            $model->mySave();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

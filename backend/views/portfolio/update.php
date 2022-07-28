@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Portfolio */
 
-$this->title = 'Update Portfolio: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Portfolios', 'url' => ['index']];
+$this->title = 'Yangilash: ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Portfolio', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Yangilash';
 ?>
 <div class="portfolio-update">
 

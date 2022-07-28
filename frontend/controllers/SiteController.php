@@ -41,7 +41,7 @@ class SiteController extends AppController
                 $message->created_at = date('Y-m-d H:i:s');
                 $message->save();
                 Yii::$app->session->setFlash('success', 'Xabaringiz yuborildi! Tez orada xodimlarimiz siz bilan bog`lanishadi!!!');
-                // return $this->redirect(['site/index#contact']);
+                return $this->redirect(['site/index#contact']);
             } else {
                 Yii::$app->session->setFlash('error', 'Xabaringiz yuborilmadi! Iltimos qayta urinib ko`ring!!!');
                 return $this->redirect(['site/index#contact']);

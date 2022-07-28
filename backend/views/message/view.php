@@ -39,7 +39,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                 }
             ],
-            'created_at',
+            [
+                'attribute'=>'created_at',
+                'format'=>'raw',
+                'value'=>function ($model){
+                    return date('Y-m-d H:i:s', $model->created_at);
+                }
+            ],
         ],
     ]) ?>
 
